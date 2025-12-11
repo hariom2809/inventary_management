@@ -41,3 +41,24 @@ products= [
 @app.get('/products')
 def get_all_products():
     return products
+
+@app.get('/product/{id}')
+def get_product_by_id(id: int):
+    for product in products:
+        if product.id == id:
+            return product
+        else:
+            return "product not found"
+
+@app.post("/products")
+def get_data_from_user(product: Products):
+    products. append(product)
+    return product
+
+@app.put("/products")
+def update_products(id: int, product: Products):
+    for i in range(len(products)):
+        if products[i].id == id:
+            products[i]= product
+            return "updated successfull"
+    return "failed"
